@@ -86,23 +86,23 @@ fun main() = runBlocking {
                 val cantidad = readln().toIntOrNull() ?: 0
 
                 if (id == 0 || cantidad == 0) {
-                    println("❌ Datos inválidos")
+                    println("Datos inválidos")
                     continue
                 }
 
                 if (!tienda.existeProducto(id)) {
-                    println("❌ Producto no existe")
+                    println("Producto no existe")
                     continue
                 }
 
                 when (val resultado = tienda.procesarCompra(id, cantidad)) {
-                    is EstadoCompra.Exitosa -> println("✅ Compra exitosa!")
-                    is EstadoCompra.Error -> println("❌ ${resultado.mensaje}")
+                    is EstadoCompra.Exitosa -> println("Compra exitosa!")
+                    is EstadoCompra.Error -> println("${resultado.mensaje}")
                 }
             }
             "3" -> {
                 ejecutando = false
-                println("👋 ¡Gracias por visitarnos!")
+                println("¡Gracias por visitarnos!")
             }
             else -> println("❌ Opción inválida")
         }
